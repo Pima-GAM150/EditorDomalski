@@ -9,6 +9,7 @@ public class VariableSceneLoader : EditorWindow {
 
 	static List<string> pain;
 	static List<string> suffering;
+	static bool toggle;
 	
 	[MenuItem("Window/Variable Scene Loader")]
 	static void Init(){
@@ -82,14 +83,14 @@ public class VariableSceneLoader : EditorWindow {
 
 		//Debug.Log(SceneManager.sceneCountInBuildSettings);
 		int temp = 0;
-		bool save = EditorGUILayout.Toggle("Save before loading", true);
+		toggle = EditorGUILayout.Toggle("Save before loading", toggle);
 		if(pain == null || pain.Count < SceneManager.sceneCountInBuildSettings || pain.Count > SceneManager.sceneCountInBuildSettings){ PainInit(); }
 
 		for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++){
 
 			if(GUILayout.Button(suffering[i])){
 
-				if(save){
+				if(toggle){
 
 					EditorSceneManager.MarkAllScenesDirty();
 					EditorSceneManager.SaveOpenScenes();
