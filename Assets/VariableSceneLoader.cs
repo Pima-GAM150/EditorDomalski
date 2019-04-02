@@ -23,14 +23,55 @@ public class VariableSceneLoader : EditorWindow {
 	static void PainInit(){
 
 		pain = new List<string>();
-		suffering = new List<string>();
 
 		for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++){
 
 			//Debug.Log(SceneUtility.GetScenePathByBuildIndex(i));
 
 			pain.Add(SceneUtility.GetScenePathByBuildIndex(i));
-			suffering.Add(SceneManager.GetSceneByPath(pain[i]).name);
+
+		}
+
+		SufferingAppend();
+
+	}
+
+	static void SufferingAppend(){
+
+		suffering = new List<string>();
+
+		for(int i = 0; i < pain.Count; i++){
+
+			string temp = pain[i];
+			Debug.Log(temp);
+			temp = temp.Remove(0, temp.IndexOf('/') + 1);
+			bool tempb = true;
+			Debug.Log(temp);
+			int safety = 0;
+			while(tempb){
+
+				if(temp.IndexOf('/') == -1){
+				
+					tempb = false;
+				
+				}else{
+
+					temp = temp.Remove(0, temp.IndexOf('/') + 1);
+					Debug.Log(temp);
+
+				}
+
+				if(safety > 100){
+
+					break;
+
+				}
+				safety++;
+			}
+
+			temp = temp.Remove(temp.IndexOf('.'));
+			Debug.Log(temp);
+			suffering.Add(temp);
 
 		}
 
