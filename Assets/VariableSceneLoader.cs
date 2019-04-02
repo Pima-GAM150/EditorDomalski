@@ -8,6 +8,7 @@ using UnityEditor.SceneManagement;
 public class VariableSceneLoader : EditorWindow {
 
 	static List<string> pain;
+	static List<string> suffering;
 	
 	[MenuItem("Window/Variable Scene Loader")]
 	static void Init(){
@@ -19,14 +20,17 @@ public class VariableSceneLoader : EditorWindow {
 
 	}
 
-	void PainInit(){
+	static void PainInit(){
 
 		pain = new List<string>();
+		suffering = new List<string>();
 
 		for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++){
 
 			//Debug.Log(SceneUtility.GetScenePathByBuildIndex(i));
+
 			pain.Add(SceneUtility.GetScenePathByBuildIndex(i));
+			suffering.Add(SceneManager.GetSceneByPath(pain[i]).name);
 
 		}
 
@@ -38,11 +42,11 @@ public class VariableSceneLoader : EditorWindow {
 		//Debug.Log(SceneManager.sceneCountInBuildSettings);
 		int temp = 0;
 		bool save = EditorGUILayout.Toggle("Save before loading", true);
-		if(pain == null || pain.Count < SceneManager.sceneCountInBuildSettings){ Pain Init(); }
+		if(pain == null || pain.Count < SceneManager.sceneCountInBuildSettings || pain.Count > SceneManager.sceneCountInBuildSettings){ PainInit(); }
 
 		for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++){
 
-			if(GUILayout.Button("Scene " + (i+1))){
+			if(GUILayout.Button(suffering[i])){
 
 				if(save){
 
