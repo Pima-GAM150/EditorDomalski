@@ -17,7 +17,7 @@ public class AutoScaler : EditorWindow{
 
 	}
 
-	static void SetScale(){
+	static void SetScale(int easier){
 
 
 
@@ -52,7 +52,7 @@ public class AutoScaler : EditorWindow{
 
 			if((setx && sety) || (sety && setz) || (setx && setz)){
 				
-				EditorGUILayout.LabelField("What should the unset direction be scaled to?(choose one)");
+				EditorGUILayout.LabelField("Dominant scale");
 				if(setx)
 					scalex = EditorGUILayout.Toggle("X", scalex);
 				else
@@ -72,13 +72,13 @@ public class AutoScaler : EditorWindow{
 
 					if(GUILayout.Button("Set Scale!")){
 
-						SetScale();
+						SetScale(1);
 
 					}
 
 				} else{
 
-					EditorGUILayout.LabelField("Please make sure only one axis is selected");
+					EditorGUILayout.LabelField("Choose one dominant");
 
 				}
 
@@ -86,7 +86,7 @@ public class AutoScaler : EditorWindow{
 
 				if(GUILayout.Button("Set Scale!")){
 
-					SetScale();
+					SetScale(0);
 
 				}
 
