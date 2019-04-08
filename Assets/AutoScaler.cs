@@ -6,7 +6,7 @@ using UnityEditor;
 public class AutoScaler : EditorWindow{
 
 	static Vector3 scaleSet;
-	static bool setx, sety, setz;
+	static bool setx, sety, setz, scalex, scaley, scalez;
 
 	[MenuItem("Window/Auto Scaler")]
 	static void Init(){
@@ -26,6 +26,7 @@ public class AutoScaler : EditorWindow{
    
 	void OnGUI(){
 
+
 		setx = EditorGUILayout.Toggle("Set X scale", setx);
 		if(setx){
 
@@ -33,6 +34,33 @@ public class AutoScaler : EditorWindow{
 
 		}
 
+		sety = EditorGUILayout.Toggle("Set Y scale", sety);
+		if(sety){
+
+			scaleSet.Set(scaleSet.x, EditorGUILayout.FloatField("size in Y direction", scaleSet.y), scaleSet.z);
+
+		}
+
+		setz = EditorGUILayout.Toggle("Set Z scale", setz);
+		if(setz){
+
+			scaleSet.Set(scaleSet.x, scaleSet.y, EditorGUILayout.FloatField("size in Z direction", scaleSet.z));
+
+		}
+
+		if(!(setx && sety && setz)){
+
+			if((setx && sety) || (sety && setz) || (setx && setz)){
+				
+
+
+			}else{
+
+
+
+			}
+
+		}
 	}
 
 }
