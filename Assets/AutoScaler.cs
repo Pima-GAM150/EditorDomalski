@@ -70,12 +70,25 @@ public class AutoScaler : EditorWindow{
 
 				if(((!scalex && !scaley) || (!scalex && !scalez) || (!scaley && !scalez)) && (scalex || scaley || scalez)){
 
+					if(GUILayout.Button("Set Scale!")){
+
+						SetScale();
+
+					}
+
+				} else{
+
+					EditorGUILayout.LabelField("Please make sure only one axis is selected");
 
 				}
 
 			}else{
 
+				if(GUILayout.Button("Set Scale!")){
 
+					SetScale();
+
+				}
 
 			}
 
