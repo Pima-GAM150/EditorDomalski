@@ -52,7 +52,26 @@ public class AutoScaler : EditorWindow{
 
 			if((setx && sety) || (sety && setz) || (setx && setz)){
 				
+				EditorGUILayout.LabelField("What should the unset direction be scaled to?(choose one)");
+				if(setx)
+					scalex = EditorGUILayout.Toggle("X", scalex);
+				else
+					scalex = false;
 
+				if(sety)
+					scaley = EditorGUILayout.Toggle("Y", scaley);
+				else
+					scaley = false;
+
+				if(setz)
+					scalez = EditorGUILayout.Toggle("Z", scalez);
+				else
+					scalez = false;
+
+				if(((!scalex && !scaley) || (!scalex && !scalez) || (!scaley && !scalez)) && (scalex || scaley || scalez)){
+
+
+				}
 
 			}else{
 
