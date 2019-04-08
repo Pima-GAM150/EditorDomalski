@@ -18,10 +18,34 @@ public class AutoScaler : EditorWindow{
 	}
 
 	static void SetScale(int easier){
+		GameObject selected = Selection.activeGameObject;
+
+		if (selected != null){
+			Bounds target = selected.GetComponent<Renderer>().bounds;
+			if(easier == 1){
+
+				if(setx){
 
 
+
+				}
+				else if (sety){}
+				else if (setz){}
+
+
+			} else if(easier == 2){
+
+
+			} else if(easier == 3){
+				
+
+			}
+
+		}
 
 	}
+
+
 
    
 	void OnGUI(){
@@ -72,7 +96,7 @@ public class AutoScaler : EditorWindow{
 
 					if(GUILayout.Button("Set Scale!")){
 
-						SetScale(1);
+						SetScale(2);
 
 					}
 
@@ -86,9 +110,17 @@ public class AutoScaler : EditorWindow{
 
 				if(GUILayout.Button("Set Scale!")){
 
-					SetScale(0);
+					SetScale(1);
 
 				}
+
+			}
+
+		}else{
+
+			if(GUILayout.Button("Set Scale!")){
+
+				SetScale(3);
 
 			}
 
