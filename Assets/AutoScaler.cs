@@ -73,7 +73,7 @@ public class AutoScaler : EditorWindow{
 
 					} else if (setz){
 						float scalemodz = scaleSet.z / target.size.z;
-						selected.transform.localScale = new Vector3(selected.transform.localScale.y * scalemodx, selected.transform.localScale.y * scalemody, selected.transform.localScale.z * scalemodz);
+						selected.transform.localScale = new Vector3(selected.transform.localScale.x * scalemody, selected.transform.localScale.y * scalemody, selected.transform.localScale.z * scalemodz);
 
 					}
 
@@ -87,7 +87,7 @@ public class AutoScaler : EditorWindow{
 
 					} else if (sety){
 						float scalemody = scaleSet.y / target.size.y;
-						selected.transform.localScale = new Vector3(selected.transform.localScale.y * scalemodz, selected.transform.localScale.y * scalemody, selected.transform.localScale.z * scalemodz);
+						selected.transform.localScale = new Vector3(selected.transform.localScale.x * scalemodz, selected.transform.localScale.y * scalemody, selected.transform.localScale.z * scalemodz);
 
 					}
 
