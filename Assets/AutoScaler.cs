@@ -48,8 +48,24 @@ public class AutoScaler : EditorWindow{
 			} else if(easier == 2){
 
 
+				if(scalex){
+
+
+
+				} else if(scaley){
+
+
+
+				} else if(scalez){
+
+
+
+				}
+
+
 			} else if(easier == 3){
-				
+
+				selected.transform.localScale = new Vector3(selected.transform.localScale.x * (scaleSet.x / target.size.x), selected.transform.localScale.y * (scaleSet.y / target.size.y), selected.transform.localScale.z * (scaleSet.z / target.size.z))
 
 			}
 
