@@ -65,18 +65,38 @@ public class AutoScaler : EditorWindow{
 
 				} else if(scaley){
 
+					float scalemody = scaleSet.y / target.size.y;
+					if(setx){
+						float scalemodx = scaleSet.x / target.size.x;
 
+						selected.transform.localScale = new Vector3(selected.transform.localScale.x * scalemodx, selected.transform.localScale.y * scalemody, selected.transform.localScale.z * scalemody);
+
+					} else if (setz){
+						float scalemodz = scaleSet.z / target.size.z;
+						selected.transform.localScale = new Vector3(selected.transform.localScale.y * scalemodx, selected.transform.localScale.y * scalemody, selected.transform.localScale.z * scalemodz);
+
+					}
 
 				} else if(scalez){
 
+					float scalemodz = scaleSet.z / target.size.z;
+					if(setx){
+						float scalemodx = scaleSet.x / target.size.x;
 
+						selected.transform.localScale = new Vector3(selected.transform.localScale.x * scalemodx, selected.transform.localScale.y * scalemodz, selected.transform.localScale.z * scalemodz);
+
+					} else if (sety){
+						float scalemody = scaleSet.y / target.size.y;
+						selected.transform.localScale = new Vector3(selected.transform.localScale.y * scalemodz, selected.transform.localScale.y * scalemody, selected.transform.localScale.z * scalemodz);
+
+					}
 
 				}
 
 
 			} else if(easier == 3){
 
-				selected.transform.localScale = new Vector3(selected.transform.localScale.x * (scaleSet.x / target.size.x), selected.transform.localScale.y * (scaleSet.y / target.size.y), selected.transform.localScale.z * (scaleSet.z / target.size.z))
+				selected.transform.localScale = new Vector3(selected.transform.localScale.x * (scaleSet.x / target.size.x), selected.transform.localScale.y * (scaleSet.y / target.size.y), selected.transform.localScale.z * (scaleSet.z / target.size.z));
 
 			}
 
