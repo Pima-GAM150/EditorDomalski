@@ -22,15 +22,27 @@ public class AutoScaler : EditorWindow{
 
 		if (selected != null){
 			Bounds target = selected.GetComponent<Renderer>().bounds;
+
 			if(easier == 1){
 
 				if(setx){
 
-
+					float scalemod = scaleSet.x / target.size.x;
+					selected.transform.localScale = new Vector3(selected.transform.localScale.x * scalemod, selected.transform.localScale.y * scalemod, selected.transform.localScale.z * scalemod);
 
 				}
-				else if (sety){}
-				else if (setz){}
+				else if (sety){
+
+					float scalemod = scaleSet.y / target.size.y;
+					selected.transform.localScale = new Vector3(selected.transform.localScale.x * scalemod, selected.transform.localScale.y * scalemod, selected.transform.localScale.z * scalemod);
+
+				}
+				else if (setz){
+
+					float scalemod = scaleSet.z / target.size.z;
+					selected.transform.localScale = new Vector3(selected.transform.localScale.x * scalemod, selected.transform.localScale.y * scalemod, selected.transform.localScale.z * scalemod);
+
+				}
 
 
 			} else if(easier == 2){
@@ -106,7 +118,7 @@ public class AutoScaler : EditorWindow{
 
 				}
 
-			}else{
+			}else if(setx || sety || setz){
 
 				if(GUILayout.Button("Set Scale!")){
 
